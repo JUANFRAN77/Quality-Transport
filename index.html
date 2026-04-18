@@ -1,201 +1,105 @@
-¡Hecho! He modificado el código para que sea exactamente como lo necesitas. He movido el número telefónico a la esquina superior derecha, coloqué la imagen edgar.png en la esquina superior izquierda, y centré la imagen edgar1.png justo antes de la sección de servicios.
-
-Aquí tienes el código actualizado:
-
-HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trans Quality Carga Express</title>
+    <title>EL GAS - Inicio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap">
     <style>
         :root {
-            --primary: #4a148c; 
-            --secondary: #00c853; 
-            --light: #f4f4f9;
-            --dark: #333;
-            --white: #ffffff;
+            --azul-elgas: #075AA8;
+            --naranja: #f38230;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Titillium Web', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Encabezado con logo y teléfono */
         header {
-            background: linear-gradient(135deg, var(--primary), #7c43bd);
-            color: var(--white);
-            padding: 4rem 1rem 3rem;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        /* Imagen esquina superior izquierda */
-        .header-left-img {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--white);
-            object-fit: cover;
-        }
-
-        /* Teléfono esquina superior derecha */
-        .header-right-phone {
-            position: absolute;
-            top: 25px;
-            right: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            color: var(--white);
-        }
-
-        .status-badge {
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: -2rem auto 2rem;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        /* Imagen del camión en el centro */
-        .truck-img-center {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            margin: 1.5rem auto;
-            display: block;
-            border-radius: 8px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .service-card {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
-        }
-
-        .contact-section {
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .btn-call {
-            background-color: var(--secondary);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-flex;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-top {
+            height: 60px; /* Ajusta el tamaño de edgar.png */
+            width: auto;
+        }
+
+        .phone-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--azul-elgas);
+            text-decoration: none;
+        }
+
+        .phone-number i {
+            margin-right: 8px;
+        }
+
+        /* Contenido central */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .hero-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
         }
 
-        .btn-call:hover {
-            transform: scale(1.05);
-            background-color: #00a846;
+        .hero-image:hover {
+            transform: scale(1.02);
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        .highlight {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
+        /* Responsive */
         @media (max-width: 600px) {
-            .header-right-phone { position: static; display: block; margin-top: 10px; }
-            .header-left-img { width: 50px; height: 50px; }
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .phone-number {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="edgar.png" alt="Perfil" class="header-left-img">
-        
-        <div class="header-right-phone">📞 0996086109</div>
+        <div class="logo-container">
+            <img src="edgar.png" alt="Logo EL GAS" class="logo-top">
+        </div>
 
-        <h1>Edgar</h1>
-        <p style="font-size: 1.3rem; opacity: 0.9;">~Trans Quality Carga Expres</p>
-        <div class="status-badge">Abierto las 24 horas</div>
+        <a href="tel:0996086109" class="phone-number">
+            📞 0996 086 109
+        </a>
     </header>
 
-    <div class="container">
-        <img src="edgar1.png" alt="Camión Quality" class="truck-img-center">
-
-        <section>
-            <h2>Sobre Nosotros</h2>
-            <p>En <span class="highlight">Trans Quality Carga Expres</span>, nos especializamos en soluciones logísticas rápidas y seguras. Contamos con vehículos modernos y personal capacitado para garantizar que su carga llegue a tiempo, sin importar la hora.</p>
-        </section>
-
-        <section class="services">
-            <div class="service-card">
-                <h3>Mudanzas</h3>
-                <p>Servicio puerta a puerta con el mayor cuidado.</p>
-            </div>
-            <div class="service-card">
-                <h3>Fletes</h3>
-                <p>Transporte local e interprovincial de mercancías.</p>
-            </div>
-            <div class="service-card">
-                <h3>Empresas</h3>
-                <p>Logística especializada para su negocio.</p>
-            </div>
-        </section>
-
-        <hr style="border: 0; border-top: 1px solid #eee;">
-
-        <section class="contact-section">
-            <h3>¿Necesitas un transporte ahora?</h3>
-            <p>Llámanos directamente al número oficial:</p>
-            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">0996086109</p>
-            <br>
-            <a href="https://wa.me/593996086109" class="btn-call">💬 WhatsApp directo</a>
-        </section>
-    </div>
-
-    <footer>
-        &copy; 2026 Trans Quality Carga Expres. Todos los derechos reservados.
-    </footer>
+    <main>
+        <img src="Edgar 1.png" alt="Imagen Principal EL GAS" class="hero-image">
+    </main>
 
 </body>
 </html>
