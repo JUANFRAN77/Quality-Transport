@@ -3,278 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edgar - Trans Quality Carga Expres</title>
+    <title>Transportes Quality Carga</title>
     <style>
-        /* Paleta de colores basada en el modelo */
         :root {
-            --primary-purple: #4a148c; /* Morado intenso */
-            --light-purple: #7c43bd;   /* Morado más claro para degradados */
-            --status-green: #00c853;    /* Verde de disponibilidad */
-            --whatsapp-green: #25D366;  /* Verde oficial WhatsApp */
-            --bg-light: #f3f0f7;       /* Fondo grisáceo lila muy suave */
+            --primary: #4a148c; 
+            --secondary: #25D366; 
+            --light: #f4f4f9;
+            --dark: #333;
             --white: #ffffff;
-            --text-dark: #333333;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--light);
         }
 
-        /* Contenedor principal para centrar la página estilo "tarjeta" */
-        .page-container {
-            max-width: 900px;
-            margin: 2rem auto;
-            background-color: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden; /* Para bordes redondeados en el header */
-        }
-
-        /* HEADER: Fondo morado con degradado y foto de perfil */
         header {
-            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            background: linear-gradient(135deg, var(--primary), #7c43bd);
             color: var(--white);
-            padding: 2rem 2rem 4rem 2rem; /* Espacio extra abajo para que el camión sobresalga */
-            position: relative;
+            padding: 3rem 1rem;
             text-align: center;
+            position: relative;
         }
 
-        /* Foto de perfil de Edgar en la esquina superior izquierda */
+        /* Foto de perfil en la esquina superior izquierda */
         .profile-img-corner {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: 80px;
+            top: 15px;
+            left: 15px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            border: 4px solid rgba(255,255,255,0.8);
+            border: 3px solid var(--white);
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        header h1 {
-            margin: 1rem 0 0.2rem 0;
-            font-size: 2.5rem;
-            font-weight: 700;
+        .container {
+            max-width: 850px;
+            margin: -2rem auto 2rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
-        header p.tagline {
-            margin: 0;
-            font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Sección de la imagen del camión grande */
-        .hero-truck-container {
+        /* Imagen del camión en el centro */
+        .truck-center {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: -60px; /* Hace que el camión sobresalga hacia arriba del header */
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero-truck-img {
-            max-width: 90%;
+            max-width: 500px;
             height: auto;
-            /* Si quieres añadir la sombra suave que se ve en el modelo, descomenta la siguiente línea */
-            /* filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); */
+            margin: 1rem auto;
+            display: block;
         }
 
-        /* CONTENIDO PRINCIPAL */
-        .main-content {
-            padding: 2rem;
-        }
-
-        /* Indicador de estado (Abierto) */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            color: var(--status-green);
+        .status {
+            color: #00c853;
             font-weight: bold;
-            font-size: 0.95rem;
             margin-bottom: 1rem;
-        }
-
-        .status-badge::before {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: var(--status-green);
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
-        h2.services-title {
-            color: var(--primary-purple);
-            font-size: 1.8rem;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-
-        p.description {
-            color: #555;
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        /* Grid de Servicios */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background-color: #fcfaff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 5px solid var(--primary-purple);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .service-card h3 {
-            color: var(--primary-purple);
-            margin: 0;
-            font-size: 1.4rem;
-        }
-
-        /* SECCIÓN DE LLAMADO A LA ACCIÓN (WhatsApp) */
-        .cta-section {
-            text-align: center;
-            padding: 2rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-
-        .cta-section h3 {
-            font-size: 1.5rem;
-            margin-top: 0;
-        }
-
-        .cta-section p {
-            color: #666;
-            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: var(--white);
-            padding: 1.2rem 2.5rem;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
             text-decoration: none;
             font-size: 1.2rem;
             border-radius: 50px;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            margin-top: 1.5rem;
+            transition: 0.3s;
         }
 
         .btn-whatsapp:hover {
+            transform: scale(1.05);
             background-color: #1ebe58;
-            transform: scale(1.03);
         }
 
-        .btn-whatsapp img {
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #888;
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
+        .card {
+            background: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-bottom: 4px solid var(--primary);
         }
 
-        /* Responsive para pantallas pequeñas (móviles) */
-        @media (max-width: 600px) {
-            .page-container { margin: 1rem; }
-            header { padding: 1.5rem 1rem 3rem 1rem; }
-            .profile-img-corner { width: 60px; height: 60px; top: 10px; left: 10px; }
-            header h1 { font-size: 2rem; margin-top: 2.5rem; }
-            .hero-truck-container { margin-top: -40px; }
-            .main-content { padding: 1.5rem; }
-            .btn-whatsapp { padding: 1rem 1.8rem; font-size: 1.1rem; }
-        }
+        footer { text-align: center; padding: 2rem; color: #888; }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
+    <header>
+        <img src="edgar.png" alt="Edgar" class="profile-img-corner">
+        <h1>Transportes Quality Carga</h1>
+        <p>~Servicio Express 24 Horas</p>
+    </header>
+
+    <div class="container">
+        <img src="edgar1.png" alt="Camión Quality" class="truck-center">
+
+        <span class="status">● Abierto ahora - Disponibilidad Total</span>
         
-        <header>
-            <img src="edgar.png" alt="Foto de Edgar" class="profile-img-corner">
-            
-            <h1>Edgar</h1>
-            <p class="tagline">~Trans Quality Carga Expres</p>
-        </header>
-
-        <div class="hero-truck-container">
-            <img src="edgar1.png" alt="Camión de Carga Trans Quality" class="hero-truck-img">
+        <h2>Nuestros Servicios</h2>
+        <div class="services">
+            <div class="card"><h3>Mudanzas</h3></div>
+            <div class="card"><h3>Fletes</h3></div>
+            <div class="card"><h3>Carga Pesada</h3></div>
         </div>
 
-        <div class="main-content">
-            
-            <div class="status-badge">
-                Abierto ahora - 24 horas
-            </div>
-
-            <h2 class="services-title">Servicios de Transporte</h2>
-            <p class="description">
-                Soluciones logísticas de carga express, fletes y mudanzas con la mejor calidad y seguridad para su mercancía.
-            </p>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Mudanzas</h3>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Fletes</h3>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Carga Pesada</h3>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h3>¿Listo para empezar?</h3>
-                <p>Escríbenos directamente por WhatsApp para una cotización inmediata:</p>
-                
-                <a href="https://wa.me/593996086109?text=Hola%20Edgar,%20necesito%20una%20cotización%20para%20un%20servicio%20de%20transporte." class="btn-whatsapp" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp">
-                    Enviar WhatsApp
-                </a>
-            </div>
-
+        <div style="margin-top: 2rem;">
+            <h3>¿Necesitas un flete ahora?</h3>
+            <p>Escríbenos directamente al WhatsApp de Edgar:</p>
+            <a href="https://wa.me/593996086109?text=Hola,%20necesito%20información%20sobre%20un%20transporte" class="btn-whatsapp">
+                Enviar WhatsApp
+            </a>
+            <p style="margin-top: 1rem; font-weight: bold;">Telf: 099 608 6109</p>
         </div>
-
-        <footer>
-            &copy; 2026 Edgar - Trans Quality Carga Expres. Todos los derechos reservados.
-        </footer>
-
     </div>
+
+    <footer>
+        &copy; 2026 Transportes Quality Carga | Edgar
+    </footer>
 
 </body>
 </html>
